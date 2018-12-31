@@ -1,43 +1,29 @@
-LINKS:
-   Primary: https://medium.com/machine-learning-for-humans/why-machine-learning-matters-6164faf1df12
-   Secondary: https://onclick360.com/supervised-machine-learning/
-==================================================================================================
+# LINKS:
+### **Primary:** https://medium.com/machine-learning-for-humans/why-machine-learning-matters-6164faf1df12
+### **Secondary:** https://onclick360.com/supervised-machine-learning/
 
-ANI - Artificial Narrow Intelligence -   effectively perform a narrowly defined task.
-
-AGI - Artificial General Intelligence (Strong AI) -  The definition of an AGI is an artificial intelligence that can successfully perform any intellectual task that a human being can, including learning, planning and decision-making under uncertainty, communicating in natural language, making jokes, manipulating people, trading stocks, or… reprogramming itself.
-
-ASI - Artificial Super Intelligence
+**Definitions** (In order of increasing complextity)
+* **ANI** - Artificial Narrow Intelligence -   effectively perform a narrowly defined task.
+* **AGI** - Artificial General Intelligence (Strong AI) -  The definition of an AGI is an artificial intelligence that can successfully perform any intellectual task that a human being can, including learning, planning and decision-making under uncertainty, communicating in natural language, making jokes, manipulating people, trading stocks, or… reprogramming itself.
+* **ASI** - Artificial Super Intelligence
 
 
-
-Supervised Learning - Start with data set containing training examples with associated correct labels. Take a set of known data nad the corresponding answer, evaluate and statistically determine the differences/deviations. Then try on unknown data to see accuracy of model (check-reading is a good example).
-
-Unsupervised Machine Learning Algorithms
-Reinforcement Machine Learning Algorithms
-
+# Types of Learning
+* **Supervised Learning** - Start with data set containing training examples with associated correct labels. Take a set of known data nad the corresponding answer, evaluate and statistically determine the differences/deviations. Then try on unknown data to see accuracy of model (check-reading is a good example).
+* **Unsupervised Machine Learning Algorithms**
+* **Reinforcement Machine Learning Algorithms**
 
 
-+ Tasks of Supervised Learning
-=======================================
-  :: Machine Learning for Humans, Part 2.1: Supervised Learning
+## Supervised Learning
+:: *Taken from*: [Machine Learning for Humans, Part 2.1: Supervised Learning](https://medium.com/machine-learning-for-humans/supervised-learning-740383a2feab)
 
-+=========================+====================================================+====================================+
-|   BASIS FOR COMPARISON  |                  CLASSIFICATION                    |            REGRESSION              |
-+=========================+====================================================+====================================+
-| Basic                   | The model or algorithm when the mapping            | The model in which the mapping of  |
-|                         | of data is done into predefined classes(labeled).  | data is done into values.          |
-+-------------------------+----------------------------------------------------+------------------------------------+
-| Includes prediction of  | Discrete data values                               | Continuous data values             |
-| Algorithms              | logistic regression, SVC, Decision tree, etc.      | Linear regression, Regression tree |
-|                         |                                                    | (Random forest), etc.              |
-+-------------------------+----------------------------------------------------+------------------------------------+
-| Nature of the predicted | Unordered                                          | Ordered                            |
-| data                    |                                                    |                                    |
-+-------------------------+----------------------------------------------------+------------------------------------+
-| Mode of calculation     | Measuring accuracy                                 | Measurement of root mean square    |
-|                         |                                                    | (RMS) error                        |
-+-------------------------+----------------------------------------------------+------------------------------------+
+
+| BASIS FOR COMPARISON | CLASSIFICATION | REGRESSION |
+| -------------------- | -------------- | ---------- |
+| Basic | The model or algorithm when the mapping of data is done into predefined classes(labeled). | The model in which the mapping of data is done into values. |
+| Includes prediction of Algorithms | Discrete data values logistic regression, SVC, Decision tree, etc. | Continuous data values Linear regression, Regression tree |
+| Nature of the predicted data | Unordered | Ordered |
+| Mode of calculation | Measuring accuracy | Measurement of root mean square (RMS) error |
 
   REGRESSION
   ======================
