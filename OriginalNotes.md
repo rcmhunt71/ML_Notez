@@ -26,17 +26,17 @@
 | Mode of calculation | Measuring accuracy | Measurement of root mean square (RMS) error |
 
 ### REGRESSION
-* Regression - predict a continuous [1] numerical value (Y) based X [2]. --> How much will that house sell for?
+* Regression - predict a continuous numerical value (Y) based X (Tensor). --> How much will that house sell for?
 
 * *Possible Algorithms:*
-1. Linear Regression (LR)
-1. Logistic Regression
-1. Polynomial Regression
-1. Random forest
-1. Stepwise Regression
-1. Support Vector Regression (SVR)
-1. Ridge Regression
-1. Lasso Regression
+  1. Linear Regression (LR)
+  1. Logistic Regression
+  1. Polynomial Regression
+  1. Random forest
+  1. Stepwise Regression
+  1. Support Vector Regression (SVR)
+  1. Ridge Regression
+  1. Lasso Regression
 
 #### *LINEAR REGRESSION*
 1. **CONTINUOUS** means there aren't any gaps (discontinuities) in the value that Y can assume; versus **DISCRETE** variables, on the other hand, can only take on a finite number of values.
@@ -65,81 +65,96 @@
    [https://cdn-images-1.medium.com/max/800/0*4YosVQ8oGBg6ZAWv.]
 
    * TO FIND THE BEST PARAMETERS:
-    1. Define a cost function, or loss function, that measures how inaccurate our model’s predictions are.
-    2. Find the parameters that minimize loss, i.e. make our model as accurate as possible.
+     1. Define a cost function, or loss function, that measures how inaccurate our model’s predictions are.
+     2. Find the parameters that minimize loss, i.e. make our model as accurate as possible.
 
-**NOTE**: A note on dimensionality: our example is two-dimensional for simplicity, but you’ll typically have more features (x’s) and coefficients (betas) in your model, e.g. when adding more relevant variables to improve the accuracy of your model predictions. The same principles generalize to higher dimensions, though things get much harder to visualize beyond three dimensions.
+**NOTE**: Dimensionality: our example is two-dimensional for simplicity, but you’ll typically have more features (x’s) and coefficients (betas) in your model; e.g. when adding more relevant variables to improve the accuracy of your model predictions. The same principles generalize to higher dimensions, though things get much harder to visualize beyond three dimensions.
 
         OLS = ordinary least squares
         COST = R^2 = SUM((value of y from model - actual y)^2)/2n
         COST_LR = (SUM[(i=1,n)((β1x_i + β0) - y_i))^2]/2*n =
 
-    For a simple problem like this, we can compute a closed form solution using calculus to find the optimal beta parameters that minimize our loss function. But as a cost function grows in complexity, finding a closed form solution with calculus is no longer feasible.
-     + This is the motivation for an iterative approach called gradient descent, which allows us to minimize a complex loss function.
+For a simple problem like this, we can compute a closed form solution using calculus to find the optimal beta parameters that minimize our loss function. But as a cost function grows in complexity, finding a closed form solution with calculus is no longer feasible.
+     * This is the motivation for an iterative approach called gradient descent, which allows us to minimize a complex loss function.
 
-    GRADIENT DESCENT
-    ==============================================
-    The goal of gradient descent is to find the minimum of our model’s loss function by iteratively getting a better and better approximation of it.
+
+## **GRADIENT DESCENT**
+The goal of gradient descent is to find the minimum of our model’s loss function by iteratively getting a better and better approximation of it.
 
     [https://cdn-images-1.medium.com/max/800/0*ZaEKARNxNgB7-H3F.]
 
-    (Code implementation of gradient descent in Python: [https://spin.atomicobject.com/2014/06/24/gradient-descent-linear-regression/])
+[Code implementation of gradient descent in Python](https://spin.atomicobject.com/2014/06/24/gradient-descent-linear-regression/)
 
-    + The function is f(β0,β1)=z, so to begin gradient descent, you make some guess of the parameters β0 and β1 that minimize the function.
-    + Next, you find the partial derivatives of the loss function with respect to each beta parameter: [dz/dβ0, dz/dβ1].
-       + A partial derivative indicates how much total loss is increased or decreased if you increase β0 or β1 by a very small amount.
+ The function is 
+ 
+    f(β0, β1) = z
+    
+so to begin gradient descent, you make some guess of the parameters β0 and β1 that minimize the function.
+  + Next, you find the partial derivatives of the loss function with respect to each beta parameter: [dz/dβ0, dz/dβ1].
+    + A partial derivative indicates how much total loss is increased or decreased if you increase β0 or β1 by a very small amount.
 
-        OVERFITTING
-        ==============================================
-        Overfitting happens when a model overlearns from the training data to the point that it starts picking up idiosyncrasies that aren’t representative of patterns in the real world.
+## **OVERFITTING**
+* Overfitting happens when a model overlearns from the training data to the point that it starts picking up idiosyncrasies that aren’t representative of patterns in the real world.
 
-        Underfitting is a related issue where your model is not complex enough to capture the underlying trend in the data.
+* Underfitting is a related issue where your model is not complex enough to capture the underlying trend in the data.
 
-        EXAMPLE:
-            + OVERFITTING: “Sherlock, your explanation of what just happened is too specific to the situation.”
-            + REGULARIZATION: “Don’t overcomplicate things, Sherlock. I’ll punch you for every extra word.”
-            + HYPERPARAMETER (λ): “Here’s the strength with which I will punch you for every extra word.”
+**EXAMPLE:**
+  1. _OVERFITTING_: “Sherlock, your explanation of what just happened is too specific to the situation.”
+  1. _REGULARIZATION_: “Don’t overcomplicate things, Sherlock. I’ll punch you for every extra word.”
+  1. _HYPERPARAMETER_ (λ): “Here’s the strength with which I will punch you for every extra word.”
 
-        BIAS-VARIANCE TRADE-OFF
-            + Bias is the amount of error introduced by approximating real-world phenomena with a simplified model.
-            + Variance is how much your model's test error changes based on variation in the training data. It reflects the model's sensitivity to the idiosyncrasies of the data set it was trained on.
+### **BIAS-VARIANCE TRADE-OFF**
+**Bias** is the amount of error introduced by approximating real-world phenomena with a simplified model.
 
-            As a model increases in complexity and it becomes more wiggly (flexible), its bias decreases (it does a good job of explaining the training data), but variance increases (it doesn't generalize as well).
+**Variance** is how much your model's test error changes based on variation in the training data. It reflects the model's sensitivity to the idiosyncrasies of the data set it was trained on.
 
-            +==============+
-            | KEY TAKEAWAY |
-            +==============+
-            ==> Ultimately, in order to have a good model, you need one with low bias and low variance.
-            [https://cdn-images-1.medium.com/max/800/1*lb7lEh2Ob5PAJLtnAyGSBA.png]
+As a model increases in complexity and it becomes more wiggly (flexible), its bias decreases (it does a good job of explaining the training data), but variance increases (it doesn't generalize as well).
 
-        Combating overfitting:
-          + Use more training data
-          + Use regularization (Add in a penalty in the loss function for building a model that assigns too much explanatory power to any one feature or allows too many features to be taken into account.)
-          [https://cdn-images-1.medium.com/max/800/1*rFT6mtU45diT0OJhlgDcBg.png]
+**KEY TAKEAWAY**
+ 
+     Ultimately, in order to have a good model, you need one with low bias and low variance.
+ 
+(https://cdn-images-1.medium.com/max/800/1*lb7lEh2Ob5PAJLtnAyGSBA.png)
 
-        E.g. determine the cost function (LR), but add a regulation term: lambda * SUMMATION of (βi)^2 to the equation.
-           + Lambda is a hyper-parameter: a general setting of your model that can be increased or decreased (i.e. tuned) in order to improve performance.
-               + A higher lambda value will more harshly penalize large beta coefficients that could lead to potential overfitting.
-               + To decide the best value of lambda, you’d use a method called cross-validation which involves holding out a portion of the training data during training, and then seeing how well your model explains the held-out portion.
+ ## **Combating Overfitting**
+   + Use more training data.
+   + Use regularization: add in a penalty in the loss function for building a model that assigns too much explanatory power to any one feature or allows too many features to be taken into account.
 
-        ADDITIONAL INFORMATION: Gradient Descent - from a mathematical POV
-        [https://eli.thegreenplace.net/2016/understanding-gradient-descent/]
-        Gradient descent is a standard tool for optimizing complex functions iteratively within a computer program. Its goal is: given some arbitrary function, find a minimum. For some small subset of functions - those that are convex - there's just a single minimum which also happens to be global.
+(https://cdn-images-1.medium.com/max/800/1*rFT6mtU45diT0OJhlgDcBg.png)
+         
+E.g. determine the cost function (LR), but add a regulation term to the equation: 
 
-        * Dot-product = multiplying the magnitude of the vectors to determine the contributions of the magnitudes
+    R(x:xO) = λ * SUM[(βi)^2]
+          
+  * where lambda (λ) is a hyper-parameter: a general setting of your model that can be increased or decreased (i.e. tuned) in order to improve performance.
+    * A higher lambda value will more harshly penalize large beta coefficients that could lead to potential overfitting.
+    * To decide the best value of λ, you’d use a method called cross-validation which involves holding out a portion of the training data during training, and then seeing how well your model explains the held-out portion.
+
+**ADDITIONAL INFORMATION**: [Gradient Descent - from a mathematical POV](https://eli.thegreenplace.net/2016/understanding-gradient-descent/)
+        
+Gradient descent is a standard tool for optimizing complex functions iteratively within a computer program. Its goal is: given some arbitrary function, find a minimum. For some small subset of functions - those that are convex - there's just a single minimum which also happens to be global.
+
+#### BACJKGROUND MATHEMATICS REVIEW
+  * Dot-product = multiplying the magnitude of the vectors to determine the contributions of the magnitudes
+  
            a . b = |a| * |b| * cos(T)
-        * cross-products = finding an orthogonal vector that is the product of the magnitude
+  
+  * Cross Products = finding an orthogonal vector that is the product of the magnitude
+           
            given 2 vectors a & b
            a X b = |a| * |b| * sin(T) * n, where n is the unit vector orthogonal to both a & b.
 
-           For 3 dimensions,  *IF* the points are based from the origin (which is the case in absolute coordinate systems)
+    + For 3 dimensions, _**IF**_ the points are based from the origin (which is the case in absolute coordinate systems)
+           
            given a=(x1,y1,z1) & b=(x2,y2,z2):
                c_x = ay*bz - az*by
                c_y = az*bx - ax*bz
                c_z = ax*by - bx*ax
            Therefore a x b = (c_x, c_y. c_z)
 
-           Chain Rule: [https://eli.thegreenplace.net/2016/the-chain-rule-of-calculus/]
+**STOPPED FORMATTING HERE***
+
+Chain Rule: [https://eli.thegreenplace.net/2016/the-chain-rule-of-calculus/]
               given a function h(x) --> Decompose into h(x) = f(X)*g(x)
               The derivative of H(x): h'(x) = g'(f(x))*f'(x)
               This allows for stepwise differentiation, which is iterative in nature, hence can be programmed.
