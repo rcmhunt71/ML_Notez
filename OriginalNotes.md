@@ -81,7 +81,7 @@ For a simple problem like this, we can compute a closed form solution using calc
 ## **GRADIENT DESCENT**
 The goal of gradient descent is to find the minimum of our model’s loss function by iteratively getting a better and better approximation of it.
 
-    [https://cdn-images-1.medium.com/max/800/0*ZaEKARNxNgB7-H3F.]
+![alt text][gradient_image]
 
 [Code implementation of gradient descent in Python](https://spin.atomicobject.com/2014/06/24/gradient-descent-linear-regression/)
 
@@ -113,14 +113,15 @@ As a model increases in complexity and it becomes more wiggly (flexible), its bi
 **KEY TAKEAWAY**
  
      Ultimately, in order to have a good model, you need one with low bias and low variance.
- 
-(https://cdn-images-1.medium.com/max/800/1*lb7lEh2Ob5PAJLtnAyGSBA.png)
+
+![alt text][overfit_image]
 
  ## **Combating Overfitting**
    + Use more training data.
    + Use regularization: add in a penalty in the loss function for building a model that assigns too much explanatory power to any one feature or allows too many features to be taken into account.
 
-(https://cdn-images-1.medium.com/max/800/1*rFT6mtU45diT0OJhlgDcBg.png)
+![alt text][regularization_image]
+
          
 E.g. determine the cost function (LR), but add a regulation term to the equation: 
 
@@ -152,7 +153,7 @@ Gradient descent is a standard tool for optimizing complex functions iteratively
                c_z = ax*by - bx*ax
            Therefore a x b = (c_x, c_y. c_z)
 
-**STOPPED FORMATTING HERE***
+**STOPPED FORMATTING HERE**
 
 Chain Rule: [https://eli.thegreenplace.net/2016/the-chain-rule-of-calculus/]
               given a function h(x) --> Decompose into h(x) = f(X)*g(x)
@@ -295,3 +296,10 @@ Chain Rule: [https://eli.thegreenplace.net/2016/the-chain-rule-of-calculus/]
           + These modifications also prevent the trees from being too highly correlated. Without #1 and #2 above, every tree would be identical, since recursive binary splitting is deterministic.
 
           Another clever ensemble model is XGBoost (Extreme Gradient Boosting) - [http://xgboost.readthedocs.io/en/latest/model.html]
+
+
+
+
+[gradient_image]: https://cdn-images-1.medium.com/max/800/0*ZaEKARNxNgB7-H3F. "Gradient"
+[regularization_image]: https://cdn-images-1.medium.com/max/800/1*rFT6mtU45diT0OJhlgDcBg.png "Regularization"
+[overfit_image]: https://cdn-images-1.medium.com/max/800/1*lb7lEh2Ob5PAJLtnAyGSBA.png "Fitting Examples"
