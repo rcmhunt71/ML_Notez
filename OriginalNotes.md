@@ -25,56 +25,50 @@
 | Nature of the predicted data | Unordered | Ordered |
 | Mode of calculation | Measuring accuracy | Measurement of root mean square (RMS) error |
 
-  REGRESSION
-  ======================
-  + Regression - predict a continuous [1] numerical value (Y) based X [2]. --> How much will that house sell for?
+### REGRESSION
+* Regression - predict a continuous [1] numerical value (Y) based X [2]. --> How much will that house sell for?
 
-  Possible Algorithms:
-    + Linear Regression (LR)
-    + Logistic Regression
-    + Polynomial Regression
-    + Random forest
-    + Stepwise Regression
-    + Support Vector Regression (SVR)
-    + Ridge Regression
-    + Lasso Regression
+* *Possible Algorithms:*
+1. Linear Regression (LR)
+1. Logistic Regression
+1. Polynomial Regression
+1. Random forest
+1. Stepwise Regression
+1. Support Vector Regression (SVR)
+1. Ridge Regression
+1. Lasso Regression
 
-    (DISCUSSION BELOW IS FOR LR)
+#### *LINEAR REGRESSION*
+1. **CONTINUOUS** means there aren't any gaps (discontinuities) in the value that Y can assume; versus **DISCRETE** variables, on the other hand, can only take on a finite number of values.
 
-  [1] - CONTINUOUS means there aren't any gaps (discontinuities) in the value that Y can assume; versus DISCRETE variables, on the other hand, can only take on a finite number of values.
+1. _**X**_ can be a TENSOR with an any number of dimensions.
+   * A 1D tensor is a vector (1 row, many columns),
+   * A 2D tensor is a matrix (many rows, many columns), and
+   * Tensors can have 3, 4, 5 or more dimensions (e.g. a 3D tensor with rows, columns, and depth).
+   * **Review**: [tensor review](http://www.deeplearningbook.org/contents/linear_algebra.html)
 
-  [2] - X can be a TENSOR with an any number of dimensions.
-      + A 1D tensor is a vector (1 row, many columns),
-      + a 2D tensor is a matrix (many rows, many columns), and
-      + then you can have tensors with 3, 4, 5 or more dimensions (e.g. a 3D tensor with rows, columns, and depth).
-      {tensor review: http://www.deeplearningbook.org/contents/linear_algebra.html}
+1. **DATA**
+  Your input data X includes all relevant information about individuals in the data set that can be used to predict income:
+   * Features of the data:
+     * numerical (e.g.  - years of work experience)
+     * categorical (e.g. - job title or field of study)
+     * **NOTE**: More data = more accurate model (obvious)
 
+1. **DATA SETS**
+   * **Training data** = Labeled data to build model
+   * **Test data** = unlabeled data to validate model
 
-    DATA
-    ===========================================
-     Your input data X includes all relevant information about individuals in the data set that can be used to predict income:
-     + Features of the data:
-       + numerical (e.g.  - years of work experience)
-       + categorical (e.g. - job title or field of study)
+#### ALGORITHMS
+ * **Linear Regression** (Ordinary Least Squares, OLS)
+   + LR is a parametric method --> makes an assumption about the form of the function relating X & Y.
 
-     NOTE: More data = more accurate model (obvious)
+   [https://cdn-images-1.medium.com/max/800/0*4YosVQ8oGBg6ZAWv.]
 
-     DATA SETS
-         Training data = Labeled data to build model
-         Test data = unlabeled data to validate model
+   * TO FIND THE BEST PARAMETERS:
+    1. Define a cost function, or loss function, that measures how inaccurate our model’s predictions are.
+    2. Find the parameters that minimize loss, i.e. make our model as accurate as possible.
 
-    ALGORITHMS
-    ==============================================
-    Linear Regression (Ordinary Least Squares)
-       + LR is a parametric method --> makes an assumption about the form of the function relating X & Y.
-
-        [https://cdn-images-1.medium.com/max/800/0*4YosVQ8oGBg6ZAWv.]
-
-       TO FIND THE BEST PARAMETERS:
-          1. Define a cost function, or loss function, that measures how inaccurate our model’s predictions are.
-          2. Find the parameters that minimize loss, i.e. make our model as accurate as possible.
-
-          NOTE: A note on dimensionality: our example is two-dimensional for simplicity, but you’ll typically have more features (x’s) and coefficients (betas) in your model, e.g. when adding more relevant variables to improve the accuracy of your model predictions. The same principles generalize to higher dimensions, though things get much harder to visualize beyond three dimensions.
+**NOTE**: A note on dimensionality: our example is two-dimensional for simplicity, but you’ll typically have more features (x’s) and coefficients (betas) in your model, e.g. when adding more relevant variables to improve the accuracy of your model predictions. The same principles generalize to higher dimensions, though things get much harder to visualize beyond three dimensions.
 
         OLS = ordinary least squares
         COST = R^2 = SUM((value of y from model - actual y)^2)/2n
