@@ -1,6 +1,6 @@
 # LINKS:
-### **Primary:** https://medium.com/machine-learning-for-humans/why-machine-learning-matters-6164faf1df12
-### **Secondary:** https://onclick360.com/supervised-machine-learning/
+#### **Primary:** [Machine Learning for Humans](https://medium.com/machine-learning-for-humans/why-machine-learning-matters-6164faf1df12)
+#### **Secondary:** [Supervised Machine Learning](https://onclick360.com/supervised-machine-learning)
 
 **Definitions** (In order of increasing complextity)
 * **ANI** - Artificial Narrow Intelligence -   effectively perform a narrowly defined task.
@@ -60,7 +60,7 @@
 
 #### ALGORITHMS
  * **Linear Regression** (Ordinary Least Squares, OLS)
-   + LR is a parametric method --> makes an assumption about the form of the function relating X & Y.
+   + LR is a parametric method --> it makes an assumption about the form of the function relating X & Y.
 
    ![alt_text][OLS_Cost]
 
@@ -116,7 +116,7 @@ As a model increases in complexity and it becomes more wiggly (flexible), its bi
 
 ![alt text][overfit_image]
 
- ## **Combating Overfitting**
+ ## **Combatting Overfitting**
    + Use more training data.
    + Use regularization: add in a penalty in the loss function for building a model that assigns too much explanatory power to any one feature or allows too many features to be taken into account.
 
@@ -128,7 +128,7 @@ E.g. determine the cost function (LR), but add a regulation term to the equation
     R(x:xO) = λ * SUM[(βi)^2]
           
   * where lambda (λ) is a hyper-parameter: a general setting of your model that can be increased or decreased (i.e. tuned) in order to improve performance.
-    * A higher lambda value will more harshly penalize large beta coefficients that could lead to potential overfitting.
+    * A higher λ value will more harshly penalize large beta coefficients that could lead to potential overfitting.
     * To decide the best value of λ, you’d use a method called cross-validation which involves holding out a portion of the training data during training, and then seeing how well your model explains the held-out portion.
 
 **ADDITIONAL INFORMATION**: [Gradient Descent - from a mathematical POV](https://eli.thegreenplace.net/2016/understanding-gradient-descent/)
@@ -142,8 +142,8 @@ Gradient descent is a standard tool for optimizing complex functions iteratively
   
   * Cross Products = finding an orthogonal vector that is the product of the magnitude
            
-           given 2 vectors a & b
-           a X b = |a| * |b| * sin(T) * n, where n is the unit vector orthogonal to both a & b.
+           given 2 vectors a & b:
+                a X b = |a| * |b| * sin(T) * n, where n is the unit vector orthogonal to both a & b.
 
     + For 3 dimensions, _**IF**_ the points are based from the origin (which is the case in absolute coordinate systems)
            
@@ -153,154 +153,149 @@ Gradient descent is a standard tool for optimizing complex functions iteratively
                c_z = ax*by - bx*ax
            Therefore a x b = (c_x, c_y. c_z)
 
-**STOPPED FORMATTING HERE**
 
-Chain Rule: [https://eli.thegreenplace.net/2016/the-chain-rule-of-calculus/]
-              given a function h(x) --> Decompose into h(x) = f(X)*g(x)
+
+   * (Chain Rule)[https://eli.thegreenplace.net/2016/the-chain-rule-of-calculus/]:
+   
+           given a function h(x) --> Decompose into h(x) = f(X)*g(x)
               The derivative of H(x): h'(x) = g'(f(x))*f'(x)
-              This allows for stepwise differentiation, which is iterative in nature, hence can be programmed.
+              
+           This allows for stepwise differentiation, which is iterative in nature, hence can be programmed.
 
-  + Classification - assign a label.  --> Is that a cat or a dog?
-    [https://medium.com/machine-learning-for-humans/supervised-learning-2-5c1c23f3560d]
+#### Classification - assign a label.  --> Is that a cat or a dog?
+    ::Taken from: [Machine Learning for Humans: Supervised Learning 2](https://medium.com/machine-learning-for-humans/supervised-learning-2-5c1c23f3560d)
 
-    The main goal of classification is to predict the target class (Yes/ No), in which the algorithm effort to label each data by selecting between two or more, unlike classes.
-       + In a binary classification model selecting between two classes such as finding whether an email is spam or not, or whether or not person will loan defaulter, predict whether the student will pass or fail, predict whether the customer will buy the new product or not, the patient has cancer or not, image contains a dog or not have only two possible outcomes (Yes/ No)
-       + Classification algorithms are applied whenever the desired output is separated by the label. Many use cases, image and audio categorization, customer segmentation, and text analysis for mining customer sentiment.
+The main goal of **classification** is to predict the target class (Yes/No), in which the algorithm effort to label each data by selecting between two or more, unlike classes.
+  + In a _binary_ classification model selecting between two classes such as finding whether an email is spam or not, or whether or not person will loan defaulter, predict whether the student will pass or fail, predict whether the customer will buy the new product or not, the patient has cancer or not, image contains a dog or not have only two possible outcomes (Yes/ No)
+  + Classification algorithms are applied whenever the desired output is separated by the label. Many use cases, image and audio categorization, customer segmentation, and text analysis for mining customer sentiment.
 
-    Classification predicts a discrete target label Y. Classification is the problem of assigning new observations to the class to which they most likely belong, based on a classification model built from labeled training data.
+Classification predicts a discrete target label Y. Classification is the problem of assigning new observations to the class to which they most likely belong, based on a classification model built from labeled training data.
 
-    Possible Algorithms
-      + Logistic Regression
-      + Decision Trees
-      + K Nearest Neighbors
-      + Naive Bayes
-      + Linear SVC (Support vector Classifier)
+## **Possible Algorithms**
+  + Logistic Regression
+  + Decision Trees
+  + K Nearest Neighbors (K-NN)
+  + Naive Bayes
+  + Linear SVC (SVC = Support Vector Classifier)
 
-    Logistic Regression
-    + Logistic regression is a method of classification: the model outputs the probability of a categorical target variable Y belonging to a certain class.
+## **Logistic Regression**
+  + Logistic regression is a method of classification: the model outputs the probability of a categorical target variable Y belonging to a certain class.
 
-    LOGIT MODEL
-    The logit model is a modification of linear regression that makes sure to output a probability between 0 and 1 by applying the sigmoid function, which, when graphed, looks like the characteristic S-shaped curve that you’ll see a bit later.
+### **LOGIT Model**
+The **logit model** is a modification of linear regression that makes sure to output a probability between 0 and 1 by applying the sigmoid function, which, when graphed, looks like the characteristic S-shaped curve that you’ll see a bit later.
 
-    (Sigmoid Function: A mathematical function having a characteristic "S"-shaped curve or sigmoid curve.)
+**Sigmoid Function**: A mathematical function having a characteristic "S"-shaped curve or sigmoid curve.
 
     S(x) = 1/(1 + e^-x) ==> Sigmoid function, which squashes values between 0 and 1.
 
+FOR LR:
 
-    FOR LR:
     LR: g(x) = β0 + β1*x
     Sigmoid: F(x) = 1/(1 + e^-x)
 
     Through composition:
-    P(Y=1) = F(g(x)) = 1/(1 + e^-(β0 + β1*x))
+          P(Y=1) = F(g(x)) = 1/(1 + e^-(β0 + β1*x))
 
     Solve for P:
-    ln(p/(1-p)) = β0 + β1*x + ϵ
+          ln(p/(1-p)) = β0 + β1*x + ϵ
 
-    p/(1-p) is the odds ratio.
+    where p/(1-p) is the odds ratio.
 
-    To predict the Y label — spam/not spam, cancer/not cancer, fraud/not fraud, etc. — you have to set a probability cutoff, or threshold, for a positive result. For example: “If our model thinks the probability of this email being spam is higher than 70%, label it spam. Otherwise, don’t.”
-
+To predict the Y label — spam/not spam, cancer/not cancer, fraud/not fraud, etc. — you have to set a probability cutoff, or threshold, for a positive result. For example: “If our model thinks the probability of this email being spam is higher than 70%, label it spam. Otherwise, don’t.”
 
     COST (R^2) = SUM((value of y from model - actual y)^2)/2n
-    Cost = SUM(i=1,n)[(y^i*log(h_β(x^i)) + (1-y^i)*log(1-h_β(x^i)))]/2n + lambda*(SUM(i=1,2) β_i^2)
+    Cost = SUM(i=1,n)[(y^i*log(h_β(x^i)) + (1-y^i)*log(1-h_β(x^i)))]/2n + λ*(SUM(i=1,2) β_i^2)
 
-    SUPPORT VECTOR MACHINES (SVMs)
-    + It typically solves the same problem as logistic regression — classification with two classes — and yields similar performance. It’s worth understanding because the algorithm is geometrically motivated in nature, rather than being driven by probabilistic thinking.
+### SUPPORT VECTOR MACHINES (SVMs)
+  + It typically solves the same problem as logistic regression — classification with two classes — and yields similar performance. It’s worth understanding because the algorithm is geometrically motivated in nature, rather than being driven by probabilistic thinking.
 
-    A few examples of the problems SVMs can solve:
-    * Is this an image of a cat or a dog?
-    * Is this review positive or negative?
-    * Are the dots in the 2D plane red or blue? (Use as an example.)
+A few examples of the problems SVMs can solve:
+  * Is this an image of a cat or a dog?
+  * Is this review positive or negative?
+  * Are the dots in the 2D plane red or blue? (Use as an example.)
 
-    We would like to classify new, unclassified points in this plane.
-    To do this, SVMs use a separating line (or, in more than two dimensions, a multi-dimensional hyperplane) to split the space into a red zone and a blue zone.
+We would like to classify new, unclassified points in this plane. To do this, SVMs use a separating line (or, in more than two dimensions, a multi-dimensional hyperplane) to split the space into a red zone and a blue zone.
 
-    The distance to the nearest point on either side of the line is called the margin, and SVM tries to maximize the margin. You can think about it like a safety space: the bigger that space, the less likely that noisy points get misclassified.
+The distance to the nearest point on either side of the line is called the margin, and SVM tries to maximize the margin. You can think about it like a safety space: the bigger that space, the less likely that noisy points get misclassified.
 
-    It turns out there’s a clean mathematical way to do this maximization, but the specifics are beyond our scope. To explore it further, here’s a video lecture that shows how it works using Lagrangian Optimization.
-    [Video: https://www.youtube.com/watch?v=_PwhiWxHK8o
-     Lagrangian Optimization: https://en.wikipedia.org/wiki/Lagrange_multiplier]
+It turns out there’s a clean mathematical way to do this maximization, but the specifics are beyond our scope. To explore it further, here’s a video lecture that shows how it works using Lagrangian Optimization.
 
-    What happens if you can’t separate the data cleanly?
-    ========================================================
-    + Soften the definition of "separate"
-      + Allow a few mistakes, meaning we allow some blue points in the red zone or some red points in the blue zone. We do that by adding a cost C for misclassified examples in our loss function. Basically, we say it’s acceptable but costly to misclassify a point.
+![alt text][Lagrangian_Optimization]
 
-    + Throw the data into higher dimensions
+More info about [Lagrangian Optimization](https://en.wikipedia.org/wiki/Lagrange_multiplier)
 
-    Non-Parametric Learners
-    ===========================================
-    Non-parametric learners do not assume a distribution model a priori. These models are more flexible to the shape of the training data, but this sometimes comes at the cost of interpretability.
+### What happens if you can’t separate the data cleanly?
+  + Soften the definition of "separate"
+  + Allow a few mistakes, meaning we allow some blue points in the red zone or some red points in the blue zone. We do that by adding a cost C for misclassified examples in our loss function. Basically, we say it’s acceptable but costly to misclassify a point.
+  + Throw the data into higher dimensions
 
-      + K-NEAREST NEIGHBORS (k-NN) - Implementation Example (Python) [http://machinelearningmastery.com/tutorial-to-implement-k-nearest-neighbors-in-python-from-scratch/]
-        + k-NN seems almost too simple to be a machine learning algorithm. The idea is to label a test data point x by finding the mean (or mode) of the k closest data points’ labels. The fact that k-NN doesn’t require a pre-defined parametric function f(X) relating Y to X makes it well-suited for situations where the relationship is too complex to be expressed with a simple linear model.
+### Non-Parametric Learners
+Non-parametric learners do not assume a distribution model a priori. These models are more flexible to the shape of the training data, but this sometimes comes at the cost of interpretability.
 
-        - You look at the "k" closest data points and take the average of their values if variables are continuous (like housing prices), or the mode if they’re categorical (like cat vs. dog).
-        - How to use k-NN to predict housing prices:
-          1) Store the training data, a matrix X of features like zip code, neighborhood, # of bedrooms, square feet, distance from public transport, etc., and a matrix Y of corresponding sale prices.
-          2) Sort the houses in your training data set by similarity to the house in question, based on the features in X. We’ll define “similarity” below.
-          3) Take the mean of the k closest houses. That is your guess at the sale price (i.e. ŷ)
+#### **K-NEAREST NEIGHBORS** (k-NN) - [Implementation Example in Python](http://machinelearningmastery.com/tutorial-to-implement-k-nearest-neighbors-in-python-from-scratch)
++ k-NN seems almost too simple to be a machine learning algorithm. The idea is to label a test data point x by finding the mean (or mode) of the k closest data points’ labels. The fact that k-NN doesn’t require a pre-defined parametric function f(X) relating Y to X makes it well-suited for situations where the relationship is too complex to be expressed with a simple linear model.
++ You look at the "k" closest data points and take the average of their values if variables are continuous (like housing prices), or the mode if they’re categorical (like cat vs. dog).
+  - How to use k-NN to predict housing prices:
+      1) Store the training data, a matrix X of features like zip code, neighborhood, # of bedrooms, square feet, distance from public transport, etc., and a matrix Y of corresponding sale prices.
+      2) Sort the houses in your training data set by similarity to the house in question, based on the features in X. We’ll define “similarity” below.
+      3) Take the mean of the k closest houses. That is your guess at the sale price (i.e. ŷ)
 
-          Distance Metrics:
-            - Euclidean distance (straight line distance via Pythagorean Theorem)
-            - Manhattan distance (distance while staying as close to Euclidean distance, but path constrained. e.g. - point A to point B, but must stay on roads.
++ **Distance Metrics**:
+  - Euclidean distance (straight line distance via Pythagorean Theorem)
+  - Manhattan distance (distance while staying as close to Euclidean distance, but path constrained. e.g. - point A to point B, but must stay on roads.
+  - In n-dimensional space:
 
-            In n-dimensional space:
               d(p,q) = SQRT(SUM[i=0-n] (q_i - p_i)^2)
+              
               PYTHON: In NumPy or SciPy: euclidean_dist = numpy.linalg.norm(p-q)
 
-          + Choosing k - Tuning hyper-parameters with cross validation
-            1) Split your training data into segments, and train your model on all but one of the segments; use the held-out segment as the “test” data.
-            2) See how your model performs by comparing your model’s predictions (ŷ) to the actual values of the test data (y).
-            3) Pick whichever yields the lowest error, on average, across all iterations
++ **Choosing _k_** - Tuning hyper-parameters with cross validation
+   1) Split your training data into segments, and train your model on all but one of the segments; use the held-out segment as the “test” data.
+   2) See how your model performs by comparing your model’s predictions (ŷ) to the actual values of the test data (y).
+   3) Pick whichever yields the lowest error, on average, across all iterations
 
-               + Higher k prevents overfitting
-                 +  but if the value of k is too high your model will be very biased and inflexible.
++ Higher k prevents overfitting but if the value of k is too high your model will be very biased and inflexible.
 
-          + Use Cases:
-            + Classification: fraud detection. The model can update virtually instantly with new training examples since you’re just storing more data points, which allows quick adaptation to new methods of fraud.
-            + Regression: predicting housing prices. In housing price prediction, literally being a “near neighbor” is actually a good indicator of being similar in price. k-NN is useful in domains where physical proximity matters.
-            + Imputing missing training data. If one of the columns in your .csv has lots of missing values, you can impute the data by taking the mean or mode. k-NN could give you a somewhat more accurate guess at each missing value.
+   + **Use Cases:**
+     + **Classification**: fraud detection. The model can update virtually instantly with new training examples since you’re just storing more data points, which allows quick adaptation to new methods of fraud.
+     + **Regression**: predicting housing prices. In housing price prediction, literally being a “near neighbor” is actually a good indicator of being similar in price. k-NN is useful in domains where physical proximity matters.
+     + Imputing missing training data. If one of the columns in your .csv has lots of missing values, you can impute the data by taking the mean or mode. k-NN could give you a somewhat more accurate guess at each missing value.
 
-      + DECISION TREES [http://www-bcf.usc.edu/~gareth/ISL/; Tutorial: [https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/]
-         - Making a good decision tree is like playing a game of “20 questions”.
-         - You want to separate the data as cleanly as possible, thereby maximizing INFORMATION GAIN from that split.
-         - Choosing splits in a decision tree
-           + There are ways to quantify information gain so that you can essentially evaluate every possible split of the training data and maximize information gain for every split. This way you can predict every label or value as efficiently as possible.
-           + Entropy: Entropy is the amount of disorder in a set
+#### [DECISION TREES](http://www-bcf.usc.edu/~gareth/ISL/)
+[Tutorial](https://www.analyticsvidhya.com/blog/2016/04/complete-tutorial-tree-based-modeling-scratch-in-python/)
+- Making a good decision tree is like playing a game of “20 questions”.
+- You want to separate the data as cleanly as possible, thereby maximizing INFORMATION GAIN from that split.
+- Choosing splits in a decision tree:
+  + There are ways to quantify information gain so that you can essentially evaluate every possible split of the training data and maximize information gain for every split. This way you can predict every label or value as efficiently as possible.
+  + **Entropy**: Entropy is the amount of disorder in a set
+    + **[Gini Index](https://en.wikipedia.org/wiki/Gini_coefficient)** -  a measure of statistical dispersion intended to represent the income or wealth distribution of a nation's residents, and is the most commonly used measurement of inequality.
+    + **[Cross Entropy](https://en.wikipedia.org/wiki/Cross_entropy)** - In information theory, the cross entropy between two probability distributions p and q over the same underlying set of events measures the average number of bits needed to identify an event drawn from the set, if a coding scheme is used that is optimized for an "artificial" probability distribution q, rather than the "true" distribution p.
+    + EXAMPLE:
+      + If we were using decision trees for regression — say, to predict housing prices — we would create splits on the most important features that determine housing prices. 
+        + How many square feet: more than or less than _x_? 
+        + How many bedrooms & bathrooms: more than or less than _x_?
+Then, during testing, you would run a specific house through all the splits and take the average of all the housing prices in the final leaf node (bottom-most node) where the house ends up as your prediction for the sale price.
 
-             + Gini Index - [https://en.wikipedia.org/wiki/Gini_coefficient] -  a measure of statistical dispersion intended to represent the income or wealth distribution of a nation's residents, and is the most commonly used measurement of inequality.
++ **Tuning Descision Trees**:
+   + There are a few hyperparameters you can tune with decision trees models, including [max_depth and max_leaf_nodes](https://scikit-learn.org/stable/modules/tree.html).
 
-             + Cross Entropy - [https://en.wikipedia.org/wiki/Cross_entropy] - In information theory, the cross entropy between two probability distributions p and q over the same underlying set of events measures the average number of bits needed to identify an event drawn from the set, if a coding scheme is used that is optimized for an "artificial" probability distribution q, rather than the "true" distribution p.
++ **ADVANTAGES/DISADVANTAGES**
+  + Decision trees are effective because they are easy to read, powerful even with messy data, and computationally cheap to deploy once after training. Decision trees are also good for handling mixed data (numerical or categorical).
 
-             + EXAMPLE:
-               + If we were using decision trees for regression — say, to predict housing prices — we would create splits on the most important features that determine housing prices. How many square feet: more than or less than ___? How many bedrooms & bathrooms: more than or less than ___?
+  + That said, decision trees are computationally expensive to train, carry a big risk of overfitting, and tend to find local optima because they can’t go back after they have made a split. To address these weaknesses, we turn to a method that illustrates the power of combining many decision trees into one model. (Often a log_n algorithm)
 
-                Then, during testing, you would run a specific house through all the splits and take the average of all the housing prices in the final leaf node (bottom-most node) where the house ends up as your prediction for the sale price.
+### RANDOM FOREST: An ensemble of decision trees
+  + A model comprised of many models is called an ensemble model, and this is usually a winning strategy.
+  + A random forest is a meta-estimator that aggregates many decision trees, with some helpful modifications:
+     1)   The number of features that can be split on at each node is limited to some percentage of the total (this is a hyperparameter you can choose — see scikit-learn documentation for details). This ensures that the ensemble model does not rely too heavily on any individual feature, and makes fair use of all potentially predictive features.
+     2) Each tree draws a random sample from the original data set when generating its splits, adding a further element of randomness that prevents overfitting.
+ + These modifications also prevent the trees from being too highly correlated. Without #1 and #2 above, every tree would be identical, since recursive binary splitting is deterministic.
 
-           - Tuning:
-             + There are a few hyperparameters you can tune with decision trees models, including max_depth and max_leaf_nodes [https://scikit-learn.org/stable/modules/tree.html]
-
-           + ADVANTAGES/DISADVANTAGES
-             + Decision trees are effective because they are easy to read, powerful even with messy data, and computationally cheap to deploy once after training. Decision trees are also good for handling mixed data (numerical or categorical).
-
-             + That said, decision trees are computationally expensive to train, carry a big risk of overfitting, and tend to find local optima because they can’t go back after they have made a split. To address these weaknesses, we turn to a method that illustrates the power of combining many decision trees into one model. (Often a log_n algorithm)
-
-      + RANDOM FOREST: An ensemble of decision trees
-          + A model comprised of many models is called an ensemble model, and this is usually a winning strategy.
-
-          + A random forest is a meta-estimator that aggregates many decision trees, with some helpful modifications:
-             1)   The number of features that can be split on at each node is limited to some percentage of the total (this is a hyperparameter you can choose — see scikit-learn documentation for details). This ensures that the ensemble model does not rely too heavily on any individual feature, and makes fair use of all potentially predictive features.
-             2) Each tree draws a random sample from the original data set when generating its splits, adding a further element of randomness that prevents overfitting.
-          + These modifications also prevent the trees from being too highly correlated. Without #1 and #2 above, every tree would be identical, since recursive binary splitting is deterministic.
-
-          Another clever ensemble model is XGBoost (Extreme Gradient Boosting) - [http://xgboost.readthedocs.io/en/latest/model.html]
-
-
+Another clever ensemble model is XGBoost [Extreme Gradient Boosting](http://xgboost.readthedocs.io/en/latest/model.html)
 
 
 [gradient_image]: https://cdn-images-1.medium.com/max/800/0*ZaEKARNxNgB7-H3F. "Gradient"
 [regularization_image]: https://cdn-images-1.medium.com/max/800/1*rFT6mtU45diT0OJhlgDcBg.png "Regularization"
 [overfit_image]: https://cdn-images-1.medium.com/max/800/1*lb7lEh2Ob5PAJLtnAyGSBA.png "Fitting Examples"
 [OLS_Cost]: https://cdn-images-1.medium.com/max/800/0*4YosVQ8oGBg6ZAWv. "OLS Cost"
+[Lagrangian_Optimization]: https://www.youtube.com/watch?v=_PwhiWxHK8o "Lagrangian Video"
