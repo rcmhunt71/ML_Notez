@@ -62,7 +62,7 @@
  * **Linear Regression** (Ordinary Least Squares, OLS)
    + LR is a parametric method --> makes an assumption about the form of the function relating X & Y.
 
-   [https://cdn-images-1.medium.com/max/800/0*4YosVQ8oGBg6ZAWv.]
+   ![alt_text][OLS_Cost]
 
    * TO FIND THE BEST PARAMETERS:
      1. Define a cost function, or loss function, that measures how inaccurate our model’s predictions are.
@@ -303,3 +303,4 @@ Chain Rule: [https://eli.thegreenplace.net/2016/the-chain-rule-of-calculus/]
 [gradient_image]: https://cdn-images-1.medium.com/max/800/0*ZaEKARNxNgB7-H3F. "Gradient"
 [regularization_image]: https://cdn-images-1.medium.com/max/800/1*rFT6mtU45diT0OJhlgDcBg.png "Regularization"
 [overfit_image]: https://cdn-images-1.medium.com/max/800/1*lb7lEh2Ob5PAJLtnAyGSBA.png "Fitting Examples"
+[OLS_Cost]: https://cdn-images-1.medium.com/max/800/0*4YosVQ8oGBg6ZAWv. "OLS Cost"
