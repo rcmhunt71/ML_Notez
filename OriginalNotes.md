@@ -1,8 +1,8 @@
-## Basis Documents:
+## **Basis Documents**:
 #### **Primary:** [Machine Learning for Humans](https://medium.com/machine-learning-for-humans/why-machine-learning-matters-6164faf1df12)
 #### **Secondary:** [Supervised Machine Learning](https://onclick360.com/supervised-machine-learning)
 
-**Definitions** (In order of increasing complextity)
+## **Definitions:** (In order of increasing complextity)
 * **ANI** - Artificial Narrow Intelligence -   effectively perform a narrowly defined task.
 * **AGI** - Artificial General Intelligence (Strong AI) -  The definition of an AGI is an artificial intelligence that can successfully perform any intellectual task that a human being can, including learning, planning and decision-making under uncertainty, communicating in natural language, making jokes, manipulating people, trading stocks, or… reprogramming itself.
 * **ASI** - Artificial Super Intelligence
