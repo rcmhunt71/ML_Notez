@@ -291,8 +291,104 @@ Then, during testing, you would run a specific house through all the splits and 
      2) Each tree draws a random sample from the original data set when generating its splits, adding a further element of randomness that prevents overfitting.
  + These modifications also prevent the trees from being too highly correlated. Without #1 and #2 above, every tree would be identical, since recursive binary splitting is deterministic.
 
-Another clever ensemble model is XGBoost [Extreme Gradient Boosting](http://xgboost.readthedocs.io/en/latest/model.html)
+Another clever ensemble model is XGBoost ([Extreme Gradient Boosting](http://xgboost.readthedocs.io/en/latest/model.html))
 
+## **Unsupervised Learning**
+* How do you find the underlying structure of a dataset?
+* How do you summarize it and group it into useful info, and then optimize for the best groupings?
+* How do you effectively represent data in a compressed format?
+
+==> **Clustering** and **Reducing Dimensionality**
+
+### **Clustering**
+* The goal of clustering is to create groups of data points such that points in different clusters are dissimilar while points within a cluster are similar. 
+  * Demographics
+  * Habits or activities
+
+_The challenge is measuring the accuracy of the algorithm, and performance is subjective (accuracy, time, bias/variability)_
+
+[White paper](https://c.ymcdn.com/sites/dema.site-ym.com/resource/resmgr/Member_Resources/Lifestage_Clustering.pdf) about how centroid clustering and principal component analysis is used in a real world application.
+
+### **K-Means Clustering**
+With k-means clustering, we want to cluster our data points into k groups. A larger k creates smaller groups with more granularity, a lower k means larger groups and less granularity.
+
+**Additional Article**: [Visualizing K-Means Clustering](https://www.naftaliharris.com/blog/visualizing-k-means-clustering/)
+
+The output of the algorithm would be a set of “labels” assigning each data point to one of the k groups. In k-means clustering, the way these groups are defined is by creating a centroid for each group. The centroids are like the heart of the cluster, they “capture” the points closest to them and add them to the cluster.
+
+_Example Use Case_: classifying handwritten digits.
+
+    Here are the steps to k-means clustering:
+       1. Define the k centroids. Initialize these at random. 
+          There are also fancier algorithms for initializing 
+          the centroids that end up converging more effectively.
+          
+       2. Find the closest centroid & update cluster assignments. 
+          Assign each data point to one of the k clusters. 
+          Each data point is assigned to the nearest centroid’s cluster. 
+          
+          Here, the measure of “nearness” is a hyperparameter — often Euclidean distance.
+          
+       3. Move the centroids to the center of their clusters. 
+          The new position of each centroid is calculated as the 
+          average position of all the points in its cluster.
+          
+       Keep repeating steps 2 and 3 until the centroid stop moving a lot at each iteration 
+       (i.e., until the algorithm converges).
+
+**Centroids**
+As a matter of practice, then often times, people will try several initialization strategies, (or try a randomized initialization strategy multiple times), and pick the one that results in the best clustering.
+
+#### **Initialization Strategies**
+**Random**
+One straightforward way of doing it is to pick them randomly from among your data points. This is does not work particularly well, however, because it becomes overwhelmingly likely that many of initial centroids will end up in the same true cluster. Suppose you are lucky enough to pick k correctly, and that each of the k true clusters has about the same number of points. Then it's easy to show that the probability that the k centroids will each be initialized into unique clusters is about k!/k^k. By Stirling's Approximation, this is about e^-k sqrt(2 pi k), which goes to zero very fast.
+
+**Farthest Heuristic**
+A better idea, implemented in the "farthest" heuristic, is to initialize the first centroid randomly, but then to initialize the second centroid to be the data point farthest away from it. In general, we initialize the jth centroid to the point whose minimum distance to the preceding centroids is largest. This procedure initializes the centroids to be well spread-out from each other. Notice how well it works in the "Packed Circles" data, for example: With k=6, the farthest point heuristic will usually initialize each centroid into a different true cluster.
+
+**k-means++**
+Perhaps an even better initialization strategy is called k-means++. It works similarly to the "farthest" heuristic, except that instead of choosing the jth centroid to be the point furthest from the preceding centroids, it selects a point with probability proportional to the square of its distance to the nearest preceding centroid. This makes some sense: If you pick the farthest point, you often get points that are at the edges of their true clusters, but if you choose randomly as described, then you're more likely to get one near the center of the true cluster. 
+
+#### **Performance**
+K-Means works best in datasets that have with clusters that are roughly equally-sized and shaped roughly regularly. So it works very well on the "Gaussian Mixture" data and the "Packed Circles" data if you the "Farthest" heuristic and the right number of centroids.
+
+**Additional Clustering Algorithms**
+Many clustering algorithms that improve on or generalize k-means, such as [k-medians](http://en.wikipedia.org/wiki/K-medians_clustering), [k-medoids](http://en.wikipedia.org/wiki/K-medoids), [k-means++](http://en.wikipedia.org/wiki/K-means%2B%2B), and the [EM algorithm for Gaussian mixtures](http://en.wikipedia.org/wiki/Expectation-maximization_algorithm#Gaussian_mixture), all reflect the same fundamental insight, that points in a cluster ought to be close to the center of that cluster.
+
+
+### **Hierarchical Clustering**
+Hierarchical clustering is similar to regular clustering, except that you’re aiming to build a hierarchy of clusters. This can be useful when you want flexibility in how many clusters you ultimately want.
+
+_Example_:  For example, imagine grouping items on an online marketplace like Etsy or Amazon. On the homepage you’d want a few broad categories of items for simple navigation, but as you go into more specific shopping categories you’d want increasing levels of granularity, i.e. more distinct clusters of items.
+
+    Here are the steps for hierarchical clustering:
+        1. Start with N clusters, one for each data point.
+        
+        2. Merge the two clusters that are closest to each other. 
+           Now you have N-1 clusters.
+           
+        3. Recompute the distances between the clusters. 
+           There are several ways to do this (see this tutorial [1] for more details). 
+           One of them (called average-linkage clustering) is to consider 
+           the distance between two clusters to be the average distance 
+           between all their respective members.
+           
+        4. Repeat steps 2 and 3 until you get one cluster of N data points.
+           You get a tree (also known as a dendrogram) like the one below.
+           
+        5. Pick a number of clusters and draw a horizontal line in the dendrogram. 
+           For example, if you want k=2 clusters, you should draw a horizontal line 
+           around “distance=20000.” You’ll get one cluster with data points 8, 9, 11, 16 
+           and one cluster with the rest of the data points. 
+           
+           In general, the number of clusters you get is the number of intersection points 
+           of your horizontal line with the vertical lines in the dendrogram.
+
+1 - [Tutorial on several ways to compute distances between the clusters](https://home.deib.polimi.it/matteucc/Clustering/tutorial_html/hierarchical.html)
+
+## **Dimensionality Reduction**
+
+(Stopped here for now).
 
 [gradient_image]: https://cdn-images-1.medium.com/max/800/0*ZaEKARNxNgB7-H3F. "Gradient"
 [regularization_image]: https://cdn-images-1.medium.com/max/800/1*rFT6mtU45diT0OJhlgDcBg.png "Regularization"
