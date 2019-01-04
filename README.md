@@ -1,8 +1,8 @@
 # ML_Notez
 My Notes About Machine Learning
 
-# Table of Contents
-## Types of Learning
+# Types of Learning
+---
 * ### Supervised Learning
   * #### _Regression_
     * ##### _Linear Regression_
