@@ -386,6 +386,10 @@ _Example_:  For example, imagine grouping items on an online marketplace like Et
 
 1 - [Tutorial on several ways to compute distances between the clusters](https://home.deib.polimi.it/matteucc/Clustering/tutorial_html/hierarchical.html)
 
+**Dendrogram**
+![alt_text][dendrogram]
+
+
 ## **Dimensionality Reduction**
 
 (Stopped here for now).
@@ -395,3 +399,4 @@ _Example_:  For example, imagine grouping items on an online marketplace like Et
 [overfit_image]: https://cdn-images-1.medium.com/max/800/1*lb7lEh2Ob5PAJLtnAyGSBA.png "Fitting Examples"
 [OLS_Cost]: https://cdn-images-1.medium.com/max/800/0*4YosVQ8oGBg6ZAWv. "OLS Cost"
 [Lagrangian_Optimization]: https://www.youtube.com/watch?v=_PwhiWxHK8o "Lagrangian Video"
+[dendrogram]: https://cdn-images-1.medium.com/max/800/1*DSrma_nUW4w9NLSccMAeYQ.png "Example of a Dendrogram"
